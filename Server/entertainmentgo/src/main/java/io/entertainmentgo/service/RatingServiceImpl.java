@@ -39,7 +39,7 @@ public class RatingServiceImpl implements RatingService {
 			throw new UserNotFound("No User found with the given ID");
 		}
 		List<Rating> userRatedTitleList =  checkUserRatedTitle(rating.getTitle().getTitleId(),rating.getUser().getUserId());
-		System.out.println(userRatedTitleList.size());
+		
 		if(!userRatedTitleList.isEmpty()){
 			throw new UserAlreadyRatedTitle("User rated the title "+existingTitle.getTitle());
 		}
