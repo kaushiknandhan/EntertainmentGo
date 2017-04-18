@@ -7,10 +7,12 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.entertainmentgo.entity.Genre;
 import io.entertainmentgo.entity.Title;
 import io.entertainmentgo.exception.NoTitleFoundException;
 import io.entertainmentgo.exception.UnknownFilterException;
 import io.entertainmentgo.exception.UnknownSortException;
+import io.entertainmentgo.repository.GenreRepository;
 import io.entertainmentgo.repository.TitleRepository;
 
 @Service
@@ -19,6 +21,9 @@ public class TitleServiceImpl implements TitleService {
 
 	@Autowired
 	private TitleRepository titleRepository;
+	
+	@Autowired
+	private GenreRepository genreRepository;
 
 	@Override
 	public List<Title> findAllTitles() {
@@ -87,6 +92,19 @@ public class TitleServiceImpl implements TitleService {
 			return existingTitle;
 		}
 	
+	}
+
+	@Override
+	public Title addTitle(Title newTile) {
+		List<Genre> genreList = newTile.getGenre();
+//		for (Genre genre : genreList) {
+//			Genre persistedGenre = genreRepository.findByGenre(genre.getGenre());
+//			if(persistedGenre == null){
+//				genreRepository.save(genre);
+//			}
+//		}
+		
+		return null;
 	}
 
 }

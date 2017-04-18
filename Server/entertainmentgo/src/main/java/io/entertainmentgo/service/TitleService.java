@@ -21,4 +21,6 @@ public interface TitleService {
 
 	public Title findTitle(String titleId) throws NoTitleFoundException;
 
+	public Title addTitle(Title newTile);
+
 }
